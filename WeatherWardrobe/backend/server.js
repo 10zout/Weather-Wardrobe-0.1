@@ -6,14 +6,11 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
 app.use(express.json());
 
-// Routes
 const authRoutes = require('./routes/auth');
 app.use('/api/auth', authRoutes);
 
-// MongoDB connection
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
